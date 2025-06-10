@@ -37,7 +37,7 @@ pip install pyDCMvn
 
 ## Documentation
 
-Visit our [documentation site](https://yourusername.github.io/pyDCMvn) for detailed guides and API reference.
+Visit our [documentation site](https://diggtvu.github.io/pyDCMvn) for detailed guides and API reference.
 
 ## Contributing
 
@@ -51,4 +51,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: Your Name
 - **Email**: your.email@example.com
-- **GitHub**: [pyDCMvn](https://github.com/yourusername/pyDCMvn)
+- **GitHub**: [pyDCMvn](https://github.com/diggtvu/pyDCMvn)
