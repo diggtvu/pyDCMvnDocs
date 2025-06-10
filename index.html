@@ -1,0 +1,164 @@
+---
+layout: default
+title: Home
+---
+
+<style>
+    .hero {
+        text-align: center;
+        padding: 60px 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        margin: -2rem -2rem 2rem -2rem;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .tagline {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        margin-bottom: 40px;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background: #ff6b6b;
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        text-decoration: none;
+    }
+    
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+    }
+    
+    .feature {
+        text-align: center;
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+    }
+    
+    .feature:hover {
+        transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    .code-block {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        overflow-x: auto;
+    }
+    
+    .nav-links {
+        margin: 30px 0;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        padding: 10px 20px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.2);
+        border-color: rgba(255,255,255,0.6);
+        text-decoration: none;
+    }
+</style>
+
+<div class="hero">
+    <h1>🏥 pyDCMvn</h1>
+    <div class="tagline">Python DICOM Library for Vietnamese Healthcare</div>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#installation">Installation</a>
+        <a href="#documentation">Documentation</a>
+        <a href="https://github.com/yourusername/pyDCMvn">GitHub</a>
+    </div>
+    <a href="{{ '/getting-started/' | relative_url }}" class="cta-button">Get Started</a>
+</div><h2>Overview</h2>
+<p>pyDCMvn is a comprehensive Python library designed to handle DICOM (Digital Imaging and Communications in Medicine) files with specific focus on Vietnamese healthcare standards and requirements.</p>
+
+<div id="features" class="features">
+    <div class="feature">
+        <div class="feature-icon">🏥</div>
+        <h3>DICOM Processing</h3>
+        <p>Complete DICOM file reading, writing, and manipulation capabilities</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">🇻🇳</div>
+        <h3>Vietnamese Standards</h3>
+        <p>Compliance with Vietnamese healthcare standards and regulations</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">📊</div>
+        <h3>Image Processing</h3>
+        <p>Advanced medical image processing and analysis tools</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">🔧</div>
+        <h3>Easy to Use</h3>
+        <p>Simple and intuitive API for developers of all levels</p>
+    </div>
+</div>
+
+<h2 id="installation">Quick Start</h2>
+<p>Install pyDCMvn using pip:</p>
+<div class="code-block">
+    <code>pip install pyDCMvn</code>
+</div>
+
+<p>Basic usage example:</p>
+<div class="code-block">
+    <code>import pyDCMvn
+
+# Load a DICOM file
+dcm = pyDCMvn.load_dicom("path/to/file.dcm")
+
+# Process the data
+processed = pyDCMvn.process(dcm)
+
+# Save the result
+pyDCMvn.save_dicom(processed, "output.dcm")</code>
+</div>
+
+<h2 id="documentation">Documentation</h2>
+<p>For detailed documentation, API reference, and examples, visit our documentation pages:</p>
+<ul>
+    <li><a href="{{ '/getting-started/' | relative_url }}">Getting Started Guide</a></li>
+    <li><a href="{{ '/api-reference/' | relative_url }}">API Reference</a></li>
+    <li><a href="{{ '/examples/' | relative_url }}">Examples</a></li>
+    <li><a href="{{ '/contributing/' | relative_url }}">Contributing</a></li>
+</ul>

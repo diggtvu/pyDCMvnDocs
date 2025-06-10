@@ -12,6 +12,13 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# GitHub Pages settings
+github: [metadata]
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
 # Navigation
 navigation:
   - title: Home
