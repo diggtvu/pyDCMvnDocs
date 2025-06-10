@@ -15,7 +15,7 @@ We welcome contributions to pyDCMvn! This document provides guidelines for contr
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/pyDCMvn.git
+   git clone https://github.com/diggtvu/pyDCMvnDocs.git
    cd pyDCMvn
    ```
 
@@ -323,7 +323,7 @@ By contributing to pyDCMvn, you agree that your contributions will be licensed u
 ## Contact
 
 - **Project Maintainer**: Your Name (your.email@example.com)
-- **GitHub Issues**: [pyDCMvn Issues](https://github.com/yourusername/pyDCMvn/issues)
-- **Discussions**: [pyDCMvn Discussions](https://github.com/yourusername/pyDCMvn/discussions)
+- **GitHub Issues**: [pyDCMvn Issues](https://github.com/diggtvu/pyDCMvnDocs/issues)
+- **Discussions**: [pyDCMvn Discussions](https://github.com/diggtvu/pyDCMvnDocs/discussions)
 
 Thank you for contributing to pyDCMvn! 🎉

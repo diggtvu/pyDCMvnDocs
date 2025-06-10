@@ -2,7 +2,7 @@ theme: minima
 title: pyDCMvn
 description: Python DICOM Library for Vietnamese Healthcare
 url: "https://diggtvu.github.io"
-baseurl: "/pyDCMvn"
+baseurl: "/pyDCMvnDocs"
 
 # Build settings
 markdown: kramdown

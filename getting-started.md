@@ -18,7 +18,7 @@ pip install pyDCMvn
 ### From Source
 
 ```bash
-git clone https://github.com/yourusername/pyDCMvn.git
+git clone https://github.com/diggtvu/pyDCMvnDocs.git
 cd pyDCMvn
 pip install -e .
 ```
@@ -111,6 +111,6 @@ except pyDCMvn.InvalidFormatError as e:
 
 If you encounter any issues or have questions:
 
-- Check our [GitHub Issues](https://github.com/yourusername/pyDCMvn/issues)
+- Check our [GitHub Issues](https://github.com/diggtvu/pyDCMvnDocs/issues)
 - Read the [FAQ](faq.html)
 - Contact us at support@pydcmvn.com
