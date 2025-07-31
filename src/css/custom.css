@@ -1,0 +1,234 @@
+/**
+ * DCMvn Custom CSS for Cursor AI BIM Documentation
+ * Based on DCMvn brand guidelines and professional BIM presentation
+ */
+
+:root {
+  --ifm-color-primary: #667eea;
+  --ifm-color-primary-dark: #4c63e2;
+  --ifm-color-primary-darker: #3f56df;
+  --ifm-color-primary-darkest: #2d42c7;
+  --ifm-color-primary-light: #8099f2;
+  --ifm-color-primary-lighter: #93a6f5;
+  --ifm-color-primary-lightest: #bcc9fa;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* DCMvn brand colors */
+  --dcmvn-primary: #667eea;
+  --dcmvn-secondary: #764ba2;
+  --dcmvn-accent: #ff6b6b;
+  --dcmvn-dark: #2d3748;
+  --dcmvn-light: #f8f9fa;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] {
+  --ifm-color-primary: #93a6f5;
+  --ifm-color-primary-dark: #8099f2;
+  --ifm-color-primary-darker: #7a8ff0;
+  --ifm-color-primary-darkest: #5c7aea;
+  --ifm-color-primary-light: #a6b3f8;
+  --ifm-color-primary-lighter: #b2bdf9;
+  --ifm-color-primary-lightest: #d1d8fd;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* DCMvn branding in header */
+.navbar__brand {
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--dcmvn-primary) 0%, var(--dcmvn-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Clean, professional styling */
+.hero {
+  background: linear-gradient(135deg, var(--dcmvn-primary) 0%, var(--dcmvn-secondary) 100%);
+  color: white;
+  padding: 4rem 0;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* Feature cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.feature {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.feature h3 {
+  color: var(--dcmvn-primary);
+  margin-bottom: 1rem;
+}
+
+/* Code blocks with BIM styling */
+.theme-code-block {
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+/* Cursor AI specific styling */
+.cursor-prompt {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-left: 4px solid var(--dcmvn-primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.cursor-prompt strong {
+  color: var(--dcmvn-dark);
+}
+
+/* BIM project stats */
+.project-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dcmvn-primary);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* DCMvn project highlights */
+.dcmvn-projects {
+  background: var(--dcmvn-light);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+[data-theme='dark'] .dcmvn-projects {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Clean navigation */
+.table-of-contents {
+  border-left: 2px solid var(--dcmvn-primary);
+  padding-left: 1rem;
+}
+
+.table-of-contents__link {
+  color: var(--ifm-color-content);
+}
+
+.table-of-contents__link--active {
+  color: var(--dcmvn-primary);
+  font-weight: 600;
+}
+
+/* Professional footer */
+.footer {
+  background: linear-gradient(135deg, var(--dcmvn-dark) 0%, #1a202c 100%);
+}
+
+.footer__link-item {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer__link-item:hover {
+  color: var(--dcmvn-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .project-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Admonitions styling */
+.admonition {
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.admonition-icon svg {
+  fill: var(--dcmvn-primary);
+}
+
+/* Professional spacing */
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown h1 {
+  border-bottom: 2px solid var(--dcmvn-primary);
+  padding-bottom: 0.5rem;
+}
+
+/* Button styling */
+.button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--dcmvn-primary) 0%, var(--dcmvn-secondary) 100%);
+  border: none;
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}

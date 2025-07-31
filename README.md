@@ -1,54 +1,76 @@
-# pyDCMvn
+# Cursor AI for BIM Development
 
-Welcome to pyDCMvn - A Python library for DICOM data processing in Vietnam.
+Complete guide to using Cursor AI for Building Information Modeling development workflows.
 
 ## Overview
 
-pyDCMvn is a comprehensive Python library designed to handle DICOM (Digital Imaging and Communications in Medicine) files with specific focus on Vietnamese healthcare standards and requirements.
+This documentation provides comprehensive guidance for leveraging [Cursor AI](https://docs.cursor.com/en/welcome) in BIM development, covering Revit API development, IFC analysis, MEP coordination, and data processing optimization with AI-powered code generation.
 
 ## Features
 
-- 🏥 DICOM file reading and writing
-- 🇻🇳 Vietnamese healthcare standard compliance
-- 📊 Medical image processing capabilities
-- 🔧 Easy-to-use API
-- 📚 Comprehensive documentation
+- **AI-Powered Code Generation**: Natural language to code using Cursor's advanced AI models
+- **Smart BIM Completions**: Context-aware suggestions for Revit API, IFC, and MEP workflows  
+- **Prompt Engineering Guide**: Comprehensive techniques for effective AI communication
+- **Professional Examples**: Real-world BIM development scenarios and solutions
+- **GitHub Actions Ready**: Automated deployment and testing workflows
 
 ## Quick Start
 
-```python
-import pyDCMvn
+**Efficient Cursor Prompt Example**:
+*"Create a Revit external command that analyzes all walls in the active document and exports their properties to Excel. Include error handling and transaction management."*
 
-# Load a DICOM file
-dcm = pyDCMvn.load_dicom("path/to/file.dcm")
+**Result**: Cursor generates complete BIM development patterns with proper API usage, error handling, and best practices.
 
-# Process the data
-processed = pyDCMvn.process(dcm)
+## Getting Started
 
-# Save the result
-pyDCMvn.save_dicom(processed, "output.dcm")
-```
-
-## Installation
-
-```bash
-pip install pyDCMvn
-```
+1. **Install Cursor**: Download from [cursor.com](https://cursor.com)
+2. **Configure for BIM**: Set up Revit API and IFC library support
+3. **Learn Prompt Engineering**: Master AI communication techniques
+4. **Explore Examples**: Browse practical BIM development scenarios
+5. **Deploy with GitHub Actions**: Use automated workflows for production
 
 ## Documentation
 
-Visit our [documentation site](https://diggtvu.github.io/pyDCMvnDocs) for detailed guides and API reference.
+Visit our [documentation site](https://diggtvu.github.io/pyDCMvnDocs) for comprehensive guides:
+
+- **Getting Started**: Setup Cursor for BIM development
+- **Cursor Features**: AI capabilities and prompt engineering
+- **BIM Examples**: Practical Revit, IFC, and MEP scenarios
+- **Contributing**: Join the BIM development community
+
+## Cursor AI Features
+
+This guide covers Cursor's core capabilities for BIM development:
+
+- **Tab Completion**: Context-aware code suggestions for BIM patterns
+- **AI Chat**: Natural language assistance for complex problems  
+- **Codebase Indexing**: Project-wide understanding of BIM relationships
+- **Auto-Import**: Smart dependency management for BIM libraries
+
+## Development & Deployment
+
+### Local Development
+```bash
+npm start              # Development server
+npm run build         # Production build
+npm run serve         # Test production build
+```
+
+### GitHub Actions
+Automated workflows included for:
+- **Continuous Integration**: Test builds on push/PR
+- **Deployment**: Auto-deploy to GitHub Pages on main branch
+- **Multi-Node Testing**: Validate across Node.js versions
+
+## Resources
+
+- **[Cursor Documentation](https://docs.cursor.com/en/welcome)** - Official Cursor AI features
+- **[Revit API Docs](https://www.revitapidocs.com)** - Autodesk development resources
+- **[buildingSMART](https://www.buildingsmart.org)** - IFC and openBIM standards
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-- **Author**: Your Name
-- **Email**: your.email@example.com
-- **GitHub**: [pyDCMvn](https://github.com/diggtvu/pyDCMvnDocs)
+Contributions welcome! Please see our [Contributing Guide](docs/contributing.md) for details on:
+- Sharing effective Cursor prompts
+- Adding BIM development examples
+- Improving documentation
