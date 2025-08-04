@@ -1,22 +1,26 @@
-name: Test Build
+name: Test Build on Feature Branches
 
 on:
   push:
     branches-ignore:
       - main
   pull_request:
+    branches-ignore:
+      - main
 
 jobs:
   test:
+    name: Test Build on Multiple Node Versions
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18, 20]
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -25,12 +29,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint check
+      - name: Build website
         run: npm run build
 
-      - name: Test serve
+      - name: Test serve website
         run: |
           npm run serve &
+          SERVER_PID=$!
           sleep 10
-          curl -f http://localhost:3000/pyDCMvnDocs/ || exit 1
-          pkill -f "docusaurus serve"
+          curl -f http://localhost:3000/pyDCMvnDocs/ || (echo "Server test failed" && kill $SERVER_PID && exit 1)
+          kill $SERVER_PID
+        timeout-minutes: 2

@@ -18,9 +18,11 @@ const config = {
   baseUrl: '/pyDCMvnDocs/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'diggtvu', // Usually your GitHub org/user name.
-  projectName: 'pyDCMvnDocs', // Usually your repo name.
+  // Using gh-pages-deploy branch for deployment
+  organizationName: 'diggtvu', // GitHub org/user name
+  projectName: 'pyDCMvnDocs', // Repository name
+  deploymentBranch: 'gh-pages-deploy', // Custom deployment branch
+  trailingSlash: false, // GitHub Pages compatibility
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',

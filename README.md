@@ -1,5 +1,7 @@
 # Cursor AI for BIM Development
 
+[![Build and Deploy](https://github.com/diggtvu/pyDCMvnDocs/actions/workflows/deploy.yml/badge.svg)](https://github.com/diggtvu/pyDCMvnDocs/actions/workflows/deploy.yml)
+
 Complete guide to using Cursor AI for Building Information Modeling development workflows.
 
 ## Overview
@@ -52,15 +54,27 @@ This guide covers Cursor's core capabilities for BIM development:
 ### Local Development
 ```bash
 npm start              # Development server
-npm run build         # Production build
-npm run serve         # Test production build
+npm run build          # Production build
+npm run serve          # Test production build
 ```
 
-### GitHub Actions
-Automated workflows included for:
-- **Continuous Integration**: Test builds on push/PR
-- **Deployment**: Auto-deploy to GitHub Pages on main branch
-- **Multi-Node Testing**: Validate across Node.js versions
+### GitHub Actions Deployment
+Automated workflows handle the build and deployment process:
+
+1. **Push to main branch** triggers the build pipeline
+2. **Build job** compiles Docusaurus site
+3. **Deploy job** pushes built files to `gh-pages-deploy` branch
+4. **GitHub Pages** serves content from the `gh-pages-deploy` branch
+
+### Feature Branch Testing
+Pushes to feature branches trigger test builds on multiple Node.js versions to ensure compatibility.
+
+### Manual Deployment
+If needed, you can manually deploy using:
+```bash
+npm run build
+# Push the build/ folder contents to gh-pages-deploy branch
+```
 
 ## Resources
 
