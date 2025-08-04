@@ -121,9 +121,9 @@ Once you master the basic wall analyzer, try these advanced prompts:
 
 With your first project complete, explore:
 
-- **[Cursor Features](../cursor-features/overview)**: Deep dive into AI capabilities
+- **[Cursor Features](../features/tab-autocomplete)**: Deep dive into AI capabilities
 - **BIM Development**: Advanced Revit API patterns
-- **[Examples](../examples/revit-plugins)**: More complex project scenarios
+- **[Examples](../hands-on/revit-plugins)**: More complex project scenarios
 
 ## Getting Help
 

@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Contributing to BIM Development
+# Contributing to Cursor AI Documentation
 
 We welcome contributions to the BIM development community! This document outlines how you can help improve AI-powered Building Information Modeling workflows.
 
@@ -15,7 +15,6 @@ Help the BIM community by sharing effective Cursor AI prompts:
 - Revit API development patterns
 - IFC analysis workflows  
 - Data processing automation
-- MEP coordination solutions
 - Your Cursor configuration optimizations
 
 ### 2. Document Best Practices
@@ -26,7 +25,7 @@ Share your BIM development expertise:
 - Contribute real-world project examples
 
 ### 3. Code Contributions
-Contribute to open-source BIM tools and utilities:
+Contribute to Cursor AI Documentation:
 
 #### Development Environment Setup
 
@@ -39,7 +38,8 @@ cd pyDCMvnDocs
 npm install
 
 # Start development server
-npm start
+npm run build
+npm run serve
 ```
 
 ## Community Guidelines
@@ -55,20 +55,6 @@ npm start
 - Deliver with certainty and professionalism
 - Support multidisciplinary coordination
 - Foster global collaboration across time zones
-
-## DCMvn Project Context
-
-### Our Expertise
-- **608,000+ m²** of project experience across Europe
-- **100+ Revit models** in active development
-- **732GB** of shared BIM data management
-- **60+ team members** in multidisciplinary coordination
-
-### Project Examples
-- Munich Airport Terminal 1 Expansion (95,000 m²)
-- Konzerthaus München Concert Hall (74,000 m²)
-- Überseequartier Residential Quarter (419,000 m²)
-- Zentralinstitut für Seelische Gesundheit (20,000 m²)
 
 ## Getting Help
 

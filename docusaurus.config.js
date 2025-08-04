@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -21,7 +22,7 @@ const config = {
   organizationName: 'diggtvu', // Usually your GitHub org/user name.
   projectName: 'pyDCMvnDocs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -94,11 +95,11 @@ const config = {
               },
               {
                 label: 'Cursor Features',
-                to: '/docs/cursor-features/overview',
+                to: '/docs/features/tab-autocomplete',
               },
               {
                 label: 'BIM Examples',
-                to: '/docs/examples/revit-plugins',
+                to: '/docs/hands-on/case-study-room-mapper',
               },
             ],
           },

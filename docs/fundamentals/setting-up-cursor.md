@@ -1,24 +1,12 @@
 ---
-sidebar_position: 1
+title: "Setting Up Cursor"
+slug: "setting-up-cursor"
+description: "Get started with Cursor AI for BIM development in just a few steps"
+sidebar_position: 5
 ---
-# Installation & Setup
+# Setting Up Cursor for pyRevit
 
 Get started with Cursor AI for BIM development in just a few steps.
-
-## Prerequisites
-
-Before you begin, ensure you have:
-
-- **Cursor IDE** - Download from [cursor.com](https://cursor.com)
-- **Development Environment**: Visual Studio for C# Revit plugins or Python for pyRevit/IFC
-- **BIM Software**: Autodesk Revit 2020+ (for Revit API development)
-- **Basic Knowledge**: Familiarity with C#, Python, or your preferred BIM development language
-
-## Install Cursor
-
-1. **Download Cursor**: Visit [cursor.com](https://cursor.com) and download the installer
-2. **Install**: Run the installer and follow the setup wizard
-3. **Launch**: Open Cursor - AI features work immediately out of the box
 
 ## Configure for BIM Development
 
@@ -50,6 +38,10 @@ Open Cursor settings (`Ctrl+,`) and configure:
 
 ### Install Cursor-Specific Extensions
 
+:::warning Extension for Cursor
+- for some reason, some time we cannot find exact extension in Cursor so let install in Vscode then transfer to Cursor
+:::
+
 **For C# Revit Development**:
 
 - **C# Dev Kit** (by Microsoft) - Official C# Dev kit or **Reshaper** (by JetBrains) (choose 1 of them)
@@ -61,7 +53,7 @@ Open Cursor settings (`Ctrl+,`) and configure:
 - **Python** (by Anysphere) - Python language support for Cursor
 - **Python Debugger** - Enhanced debugging capabilities
 - **XAML Styler** - format XAML file
-- "Ruff": python linter
+- **Ruff** - python linter
 
 > **Important**: Use Cursor-specific versions of extensions when available. Standard VS Code extensions may not work properly or lack Cursor's AI integration features.
 
@@ -95,7 +87,7 @@ If Cursor suggests appropriate Revit API imports and command structure with prop
 
 ## Next Steps
 
-Continue with [Project Setup](./setup) to configure your first BIM development project with Cursor AI.
+Continue with [Project Setup](./project-setup) to configure your first BIM development project with Cursor AI.
 
 ---
 

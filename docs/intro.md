@@ -1,57 +1,58 @@
 ---
 sidebar_position: 1
 ---
-
-# Introduction to Cursor AI for BIM Development
-
-Welcome to the comprehensive guide for using **Cursor AI** in Building Information Modeling development, powered by **DCMvn's** expertise in digital construction and management.
+# Quick Intro
 
 ## What is Cursor AI?
 
-Cursor is an AI-powered code editor designed to accelerate development workflows. This documentation explores how Cursor's advanced features can revolutionize Building Information Modeling (BIM) development, making complex tasks like Revit API development, IFC analysis, and BIM data processing more efficient and accessible.
+Cursor AI is an **AI-native code editor** built specifically for modern development workflows. Unlike traditional IDEs with AI plugins, Cursor is designed from the ground up to understand your entire codebase and assist with intelligent code generation, refactoring, and documentation.
 
-## Cursor AI Features for BIM
+### Why Cursor Matters for pyRevit/BIM Development
 
-Based on the [official Cursor documentation](https://docs.cursor.com/en/welcome), Cursor provides:
+BIM development with **pyRevit** and **Revit API** often involves:
 
-- **Natural Language Code Generation** - Describe what you want and Cursor writes the code
-- **AI-Powered Completions** - Context-aware suggestions that understand your codebase
-- **Intelligent Chat Assistant** - Get help with complex problems and debugging
-- **Codebase Understanding** - AI that learns your project structure and patterns
+- **Complex API integrations** with Revit's .NET framework
+- **Extensive boilerplate code** for pyRevit tools and extensions
+- **Domain-specific knowledge** for architectural and engineering workflows
+- **Rapid prototyping** needs for custom Revit tools
 
-## Core BIM Development Areas
+Cursor AI excels at all of these because it:
 
-### Revit API Development
-- **C# & pyRevit**: Plugin development acceleration
-- **Family Parameter Automation**: Streamlined parameter management
-- **Model Analysis**: Comprehensive validation tools
+- Understands **pyRevit patterns** and Revit API conventions
+- Generates **accurate Python code** for Revit automation
+- Creates **consistent documentation** following pyRevit standards
+- Accelerates **tool scaffolding** and extension development
 
-### IFC Analysis
-- **Schema Exploration**: Industry Foundation Classes mastery
-- **Data Extraction**: Automated property extraction
-- **Quality Control**: Compliance validation tools
+## 🌟 What You'll Learn
 
-### Data Analysis
-- **Model Visualization**: Performance dashboards
-- **Analytics**: Space utilization and efficiency metrics
-- **Reporting**: Automated documentation generation
+This comprehensive workshop covers everything from basic AI coding assistance to advanced agentic workflows:
 
-### MEP Coordination
-- **Clash Detection**: Automated conflict resolution
-- **System Integration**: Multidisciplinary coordination
-- **Equipment Management**: Scheduling and optimization
+1. **Current AI Coding Landscape** - Understanding the state of AI development tools in late 2025
+2. **Cursor AI Setup & Integration** - Complete guide to setting up Cursor for BIM development
+3. **Core Cursor Features** - Tab completion, Inline Edit, and Agent Mode
+4. **Hands-on Demonstrations** - Live coding with pyRevit tools
+5. **Advanced Autonomous Coding** - AI agents working for hours independently
+6. **Configuration & Rules** - Essential setup for production workflows
+7. **Real-world Case Studies** - pyRevit + WPF + MVVM integration
 
-## Why Cursor AI for BIM?
+## 🎯 Target Audience
 
-- **5x Faster** API learning with context-aware suggestions
-- **70% Less** debugging time with AI assistance
-- **100+ Built-in** templates for common BIM tasks
-- **24/7 AI** assistant for complex BIM concepts
+This guide is designed for:
 
-## Getting Started
+- **AEC Software Developers** building BIM applications
+- **pyRevit Plugin Developers** looking to accelerate development
+- **BIM Coordinators** automating workflows with code
+- **Construction Technology Teams** integrating AI into their stack
+- **Architecture/Engineering Firms** adopting AI-assisted development
 
-Ready to revolutionize your BIM development workflow? Start with our [Getting Started Guide](./getting-started/installation) to set up Cursor for BIM development.
+:::tip Ready to Start?
+Make sure you have Cursor installed and are familiar with these shortcuts:
 
----
+- **Tab**: Accept autocomplete suggestions
+- **Ctrl+K / Cmd+K**: Natural language edits
+- **Ctrl+I / Cmd+I**: Agent chat mode
 
-*Learn more about Cursor at [docs.cursor.com](https://docs.cursor.com/en/welcome)*
+**Prerequisites**: Basic Python knowledge and familiarity with Revit/pyRevit
+:::
+
+Let's dive into the core features that will transform your pyRevit development workflow!

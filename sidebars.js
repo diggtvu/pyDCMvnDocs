@@ -13,35 +13,65 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // Simplified sidebar matching available content
+  // Cursor AI for BIM Development Documentation
   tutorialSidebar: [
     'intro',
+    
     {
       type: 'category',
-      label: 'Getting Started',
+      label: '🎯 Cursor AI Fundamentals',
       items: [
-        'getting-started/installation',
-        'getting-started/setup',
-        'getting-started/first-project',
+        'fundamentals/market-overview',
+        'fundamentals/most-powerful-llms',
+        'fundamentals/introduction-to-cursor',
+        'fundamentals/setting-up-cursor',
+        'fundamentals/project-setup',
       ],
     },
+    
     {
       type: 'category',
-      label: 'Cursor AI Features',
+      label: '🚀 Core Cursor Features',
       items: [
-        'cursor-features/overview',
-        'cursor-features/prompt-engineering',
+        'features/tab-autocomplete',
+        'features/inline-editing',
+        {
+          type: 'category',
+          label: 'Agent Chat Mode',
+          items: [
+            'features/chat-mode',
+            'features/chat-mode/prompt-engineering',
+          ],
+        },
+        'features/configuring-rules-docs',
       ],
     },
+    
     {
       type: 'category',
-      label: 'Examples & Use Cases',
+      label: '🛠️ Hands-On Examples',
       items: [
-        'examples/revit-plugins',
+        'hands-on/pyrevit-mvvm-showcase',
+        'hands-on/agent-coding-demo',
       ],
     },
-    'contributing',
-    'changelog',
+    
+    {
+      type: 'category',
+      label: '📝 Final Review',
+      items: [
+        'review/summary-qa-bim-tools',
+      ],
+    },
+    
+    {
+      type: 'category',
+      label: '📚 Resources & Community',
+      items: [
+        'contributing',
+        'changelog',
+      ],
+    },
   ],
 };
 
