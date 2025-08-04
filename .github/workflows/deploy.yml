@@ -52,6 +52,11 @@ jobs:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
+    # Configure GitHub Pages deployment environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || format('https://{0}.github.io/{1}', 'diggtvu', 'pyDCMvnDocs') }}
+    
     permissions:
       contents: write  # to push to gh-pages-deploy branch
       
@@ -72,9 +77,12 @@ jobs:
         run: npm ci
 
       - name: Build website
-        run: npm run build
+        run: |
+          npm run build
+          touch ./build/.nojekyll
 
       - name: Deploy to gh-pages-deploy branch
+        id: deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -84,3 +92,9 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'Deploy Docusaurus site - ${{ github.sha }}'
+          
+      # Explicitly update GitHub Pages to use gh-pages-deploy branch
+      - name: Set GitHub Pages branch (informational only)
+        run: |
+          echo "GitHub Pages should be configured to use the gh-pages-deploy branch"
+          echo "Please verify this setting in your repository's Settings > Pages section"
