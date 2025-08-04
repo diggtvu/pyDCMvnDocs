@@ -3,6 +3,11 @@ sidebar_position: 1
 ---
 # Quick Intro
 
+:::info
+This documentation is automatically deployed via GitHub Actions when changes are made to the main branch.
+Last updated: August 4, 2025
+:::
+
 ## What is Cursor AI?
 
 Cursor AI is an **AI-native code editor** built specifically for modern development workflows. Unlike traditional IDEs with AI plugins, Cursor is designed from the ground up to understand your entire codebase and assist with intelligent code generation, refactoring, and documentation.

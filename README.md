@@ -1,8 +1,11 @@
 # Cursor AI for BIM Development
 
 [![Build and Deploy](https://github.com/diggtvu/pyDCMvnDocs/actions/workflows/deploy.yml/badge.svg)](https://github.com/diggtvu/pyDCMvnDocs/actions/workflows/deploy.yml)
+[![Documentation](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://diggtvu.github.io/pyDCMvnDocs/)
 
 Complete guide to using Cursor AI for Building Information Modeling development workflows.
+
+**Last Updated:** August 4, 2025
 
 ## Overview
 
