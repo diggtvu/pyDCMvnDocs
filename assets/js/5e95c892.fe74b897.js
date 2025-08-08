@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdcmvn_cursor_bim_docs=self.webpackChunkdcmvn_cursor_bim_docs||[]).push([[647],{7121:(s,e,r)=>{r.r(e),r.d(e,{default:()=>t});r(6540);var c=r(4164),u=r(7559),d=r(5500),n=r(2831),a=r(1656),o=r(4848);function t(s){return(0,o.jsx)(d.e3,{className:(0,c.A)(u.G.wrapper.docsPages),children:(0,o.jsx)(a.A,{children:(0,n.v)(s.route.routes)})})}}}]);
