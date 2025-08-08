@@ -26,7 +26,7 @@ At DCMvn, we have a **Cursor Pro subscription** with the following features:
 - **Multiple AI model access** with different cost structures
 - **Enhanced performance** for complex BIM development tasks
 
-![Cursor Available Models](../images/CursorAvailableModels.png)
+![Cursor Available Models](../../fundamentals/images/CursorAvailableModels.png)
 
 *Available AI models in Cursor Pro showing different capabilities and request costs*
 
@@ -34,7 +34,7 @@ At DCMvn, we have a **Cursor Pro subscription** with the following features:
 
 Different AI models have varying request costs that impact your monthly allocation:
 
-![Cursor Agent Select Model](../images/CursorAgentSelectModel.png)
+![Cursor Agent Select Model](../../fundamentals/images/CursorAgentSelectModel.png)
 
 *Model selection interface showing cost implications for different AI models*
 
@@ -57,11 +57,15 @@ With 500 premium requests per month, plan your AI usage strategically:
 
 ### Usage Dashboard
 
-go to [Cursor Dashboard](https://cursor.com/dashboard)
+Monitor your AI model usage through the [Cursor Dashboard](https://cursor.com/dashboard).
 
-![Cursor Dashboard](../images/CursorUsageDashboard.png)
+> 📊 **Dashboard Guide**: Learn about usage monitoring and model selection in [LLMs for Coding Agents](../../fundamentals/most-powerful-llms.md#usage-monitoring-and-dashboard)
 
-*Cursor Dashboard provides a visual summary of how users are interacting with Cursor AI over time*
+### Indexing and Documentation Integration
+
+Cursor's indexing system provides crucial context for AI assistance.
+
+> 🔍 **Indexing Setup**: Configure codebase indexing for optimal performance in [Project Setup](../../fundamentals/project-setup.md#configure-cursor-indexing)
 
 ## Strategic Prompt Planning for Limited Requests
 
@@ -104,6 +108,16 @@ Given DCMvn's 500 premium requests per month, effective prompt engineering becom
 ![Cursor Context Reference](../images/CursorContextFeature.png)
 
 *Cursor Context Reference showing the different context features available*
+
+### Rules and Memories
+
+[Cursor Rules](https://docs.cursor.com/en/context/rules)
+[Cursor Memories](https://docs.cursor.com/en/context/memories)
+
+
+![Rules and Memories](../images/RulesAndMemories.png)
+
+*Cursor's Rules and Memories interface for configuring AI behavior and maintaining context across sessions*
 
 ## Core Prompt Engineering Principles
 
@@ -428,6 +442,139 @@ implemented in the Logger.cs file."
 - Export query results to Excel or CSV formats"
 ```
 
+## 🤖 AI Agent Guidelines
+
+### When to Use AI Agent
+
+AI Agent is most effective for:
+
+- **Boilerplate code generation** - Standard Revit API patterns, transaction templates
+- **Standard pattern implementation** - MVVM structures, event handlers, common utilities
+- **Documentation writing** - Code comments, API documentation, user guides
+- **Code review and optimization** - Code analysis and improvement suggestions
+- **Refactoring existing code** - Code cleanup, pattern modernization
+- **Data processing logic** - Parameter extraction, filtering, calculations
+- **Simple HTML reports** - Basic formatting and layout generation
+- **Excel operations** - Data import/export, formatting utilities
+
+![Keep Changed Behaviour](../../features/images/KeepChangedBehaviour.png)
+
+*Cursor settings showing how to maintain consistent behavior when working with AI Agent*
+
+### When to Review Carefully
+
+:::danger Critical Review Required
+**Always review AI-generated code carefully** before accepting changes. AI can introduce subtle bugs, security vulnerabilities, or unintended modifications that may not be immediately apparent.
+:::
+
+**Requires Extra Scrutiny:**
+
+- **Security-sensitive code** - Authentication, data validation, file operations
+- **Performance-critical sections** - Large dataset processing, memory management
+- **Complex business logic** - Custom algorithms, calculation formulas
+- **Integration with external systems** - APIs, databases, third-party services
+- **Error handling edge cases** - Exception management, fail-safe mechanisms
+- **Revit API transactions** - Model modifications, element creation/deletion
+- **Parameter manipulation** - Shared parameters, family parameters
+- **Memory management** - IDisposable objects, large collections
+- **Threading operations** - Async/await patterns, background processing
+
+![Unessary Changed Issue](../../features/images/UnessaryChangedIssue.png)
+
+*Example of unnecessary changes that can occur - always review AI suggestions carefully to avoid unintended modifications*
+
+### Things to Avoid - Critical Warning Signs
+
+:::warning Never Accept Without Review
+**Never blindly accept AI-generated code** that includes these patterns without thorough review:
+:::
+
+#### 🚨 **High-Risk Code Patterns**
+
+**Security Vulnerabilities:**
+```python
+# ❌ DANGER: Direct file path construction
+file_path = user_input + ".txt"
+
+# ❌ DANGER: SQL injection potential  
+query = "SELECT * FROM table WHERE id = " + str(user_id)
+
+# ❌ DANGER: Unvalidated external input
+os.system(user_provided_command)
+```
+
+**Performance Issues:**
+```python
+# ❌ DANGER: Inefficient element collection
+for elem in FilteredElementCollector(doc).ToElements():  # slow, loads all
+    process_element(elem)
+
+# ❌ DANGER: Multiple transaction calls
+for elem in elements:
+    with Transaction(doc, "Update") as t:  # inefficient transaction usage
+        t.Start()
+        modify_element(elem)
+        t.Commit()
+
+# ❌ DANGER: Large data processing without progress
+all_walls = FilteredElementCollector(doc).OfClass(Wall).ToElements()  # Memory intensive
+```
+
+**Revit API Misuse:**
+```python
+# ❌ DANGER: Modifying model outside transaction
+element.Name = "NewName"  # Will fail - no transaction
+
+# ❌ DANGER: Accessing parameters without null check
+value = element.get_Parameter(param).AsString()  # NullReference risk
+
+# ❌ DANGER: Ignoring element state
+if room.Area > 0:  # Unplaced rooms have Area = 0, wrong logic
+    process_room(room)
+```
+
+#### 🔍 **What to Verify Before Accepting**
+
+**Code Quality Checks:**
+- [ ] **Error handling** - Are try-catch blocks appropriate?
+- [ ] **Null checking** - Are all object references validated?
+- [ ] **Resource disposal** - Are IDisposable objects properly disposed?
+- [ ] **Transaction usage** - Are model modifications wrapped correctly?
+- [ ] **Performance impact** - Will this scale with large models?
+- [ ] **Input validation** - Are user inputs properly validated?
+- [ ] **Memory management** - Are large collections handled efficiently?
+
+**BIM-Specific Checks:**
+- [ ] **Element existence** - Are elements checked before processing?
+- [ ] **Parameter availability** - Are parameters validated before access?
+- [ ] **Unit consistency** - Are measurement units handled correctly?
+- [ ] **Coordinate systems** - Are transformations applied correctly?
+- [ ] **Family context** - Does code work in both project and family environments?
+- [ ] **Version compatibility** - Will this work across Revit versions?
+
+### Quality Gates for AI-Generated Code
+
+**Mandatory Requirements:**
+- [ ] **Performance benchmarks must be met** for large model operations
+- [ ] **Security scans must pass** for any external data handling
+- [ ] **Code must follow established patterns** from project standards
+- [ ] **Manual code review** by senior developer required
+- [ ] **Integration testing** in realistic BIM environments
+- [ ] **Documentation** must be complete and accurate
+- [ ] **Functional testing** with representative Revit models
+
+**Acceptance Criteria:**
+```markdown
+✅ Code executes without errors in Revit environment
+✅ No security vulnerabilities detected
+✅ Performance meets project benchmarks
+✅ Follows team coding standards
+✅ Includes appropriate error handling
+✅ Documentation is complete and clear
+✅ Manual review completed and approved
+✅ Tested with representative BIM models
+```
+
 ## Best Practices Summary
 
 ### Technical Requirements
@@ -439,7 +586,7 @@ implemented in the Logger.cs file."
 5. **Ask for documentation and comments** in generated code
 6. **Specify user experience requirements** (progress bars, messages)
 7. **Include compliance requirements** (building codes, standards)
-8. **Request test scenarios** for quality assurance
+8. **Request validation scenarios** for quality assurance
 
 ### Cost Management (DCMvn Specific)
 

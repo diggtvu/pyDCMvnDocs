@@ -1,5 +1,5 @@
 ---
-title: "LLMs for Coding Agents"
+title: "Most Powerful LLMs for Coding Agents"
 slug: "most-powerful-llms"
 description: "Comprehensive analysis of leading Large Language Models for software engineering and coding agentic workflows in late 2025"
 sidebar_position: 2
@@ -118,6 +118,103 @@ We've entered the era where agents aren't just code-completion tools, but integr
 - **Memory Persistence**: Remembering project context across sessions
 - **Tool Orchestration**: Seamless integration with development tools
 
+## 📚 Available Models in Cursor
+
+According to the [official Cursor documentation](https://docs.cursor.com/en/models), Cursor supports all frontier coding models from major providers:
+
+### Supported Model Providers
+
+- **OpenAI** - GPT models including GPT-4 variants
+- **Anthropic** - Claude models including Sonnet and Opus
+- **Google** - Gemini models including 2.5 Flash and Pro
+- **DeepSeek** - Advanced reasoning models
+- **xAI** - Grok models with large context windows
+- **Cursor** - Proprietary models optimized for coding
+
+## 🧠 Understanding Context Windows
+
+### What are Context Windows?
+
+Based on the [official documentation](https://docs.cursor.com/en/models), a **context window** is the maximum span of tokens (text and code) an LLM can consider at once, including both:
+
+- **Input prompt** - Your code, files, and instructions
+- **Output generated** - The model's response
+
+### How Context Works in Cursor
+
+- **Per-Chat Context**: Each chat in Cursor maintains its own context window
+- **Growing Context**: More prompts, attached files, and responses increase context size
+- **Token-Based**: Context measured in tokens (~4 characters = 1 token)
+- **Default Limit**: Cursor normally uses 200k tokens (~15,000 lines of code)
+
+### Context Management Best Practices
+
+For BIM development with large Revit projects:
+
+```
+✅ Efficient Context Usage:
+- Reference specific files with @filename.py
+- Use targeted questions about specific functions
+- Break large tasks into smaller chunks
+- Clear context when switching topics (/clear)
+
+❌ Context Waste:
+- Including entire large codebases unnecessarily
+- Vague questions without file references
+- Long conversation threads without focus
+```
+
+## 🚀 Max Mode - Extended Context
+
+### What is Max Mode?
+
+According to the [official Cursor documentation](https://docs.cursor.com/en/models), **Max Mode** extends the context window to the maximum available for each model:
+
+- **Normal Mode**: 200k tokens (~15,000 lines of code)
+- **Max Mode**: Uses each model's full context window capacity
+- **Trade-offs**: Slower performance and higher cost
+- **Best Models for Max Mode**: Gemini 2.5 Flash, Gemini 2.5 Pro, GPT-4.1, and Grok 4
+
+### When to Use Max Mode
+
+**✅ Ideal for Max Mode:**
+- Large codebase analysis
+- Complex architectural refactoring across multiple files
+- Comprehensive documentation generation
+- Cross-referencing large implementations
+
+**❌ Avoid Max Mode for:**
+- Simple code completion
+- Quick questions about specific functions
+- Iterative development with frequent changes
+- Cost-sensitive environments
+
+## 🤖 Auto Mode - Intelligent Model Selection
+
+### How Auto Mode Works
+
+Based on the [official documentation](https://docs.cursor.com/en/models), **Auto Mode** configures Cursor to:
+
+- **Automatically select** the premium model best fit for each task
+- **Optimize reliability** based on current demand
+- **Detect degraded performance** and switch models automatically
+- **Balance** speed, cost, and quality for each request
+
+### Auto Mode Benefits
+
+- **No manual selection** - Cursor chooses the optimal model
+- **Reliability optimization** - Automatic fallback when models underperform  
+- **Task-appropriate selection** - Different models for different complexity levels
+- **Current demand awareness** - Adapts to model availability and performance
+
+### Auto Mode Selection Examples
+
+Auto Mode automatically selects appropriate models:
+
+- **Simple queries** → Fast, efficient model
+- **Complex architecture** → Powerful model  
+- **Code generation** → Balanced model
+
 ## Performance Analysis by Use Case (Late 2025)
 
 ### Enterprise Development (Fortune 500)
@@ -190,6 +287,31 @@ For BIM and AEC development (Revit plugins, spatial-index services, custom expor
 3. **Integrate vulnerability scanning** alongside performance metrics
 4. **Include quality audits** (documentation, modularity, memory consumption)
 
+![Cursor Available Models](images/CursorAvailableModels.png)
+
+*Available AI models in Cursor showing different capabilities and their performance characteristics*
+
+![Cursor Agent Select Model](images/CursorAgentSelectModel.png)
+
+*Model selection interface in Cursor for choosing the appropriate AI model for your development tasks*
+
+### Usage Monitoring and Dashboard
+
+Track your AI model usage and performance with Cursor's built-in monitoring:
+
+![Cursor Usage Dashboard](images/CursorUsageDashboard.png)
+
+*Cursor Usage Dashboard provides insights into your AI interactions and helps optimize model selection for different tasks*
+
+## 🔧 Model Hosting and Privacy
+
+According to the [official Cursor documentation](https://docs.cursor.com/en/models):
+
+- **US-based infrastructure** by the model's provider, trusted partner, or Cursor directly
+- **Privacy Mode**: When enabled, neither Cursor nor providers store your data
+- **Data deletion**: All data is deleted after each request in Privacy Mode
+- **Security details**: Available in Cursor's Privacy, Privacy Policy, and Security pages
+
 ## Implementation Guide for Late 2025
 
 ### Quick Start Recommendations
@@ -231,6 +353,13 @@ For BIM and AEC development (Revit plugins, spatial-index services, custom expor
 - **Security Vigilance**: 45% of AI code contains vulnerabilities—implement scanning
 - **Domain Specialization**: Build custom evaluation sets for your specific domain
 - **Multi-Modal Approach**: Use different models for different complexity levels
+
+## 📊 Token Management
+
+**What are Tokens:**
+- **1 token ≈ 4 characters** or ~0.75 words
+- **200k tokens ≈ 15,000 lines** of code (normal mode)
+- **Max Mode** varies by model (up to 2M+ tokens for some models)
 
 ## The Road Ahead (Late 2025 and Beyond)
 
@@ -274,3 +403,16 @@ The choice of AI coding tools now requires careful consideration of use case, se
 - [TechRadar Generation 3 Analysis](https://www.techradar.com/pro/the-three-generations-of-ai-coding-tools/)
 - [NVIDIA Nemotron-CORTEXA](https://research.nvidia.com/labs/adlr/cortexa/)
 - [Together AI DeepSWE](https://kiadev.net/news/2025-07-03-together-ai-deepswe-open-source-rl-coding-agent-swenbench/)
+
+## 📚 Additional Resources
+
+- [Cursor Models Documentation](https://docs.cursor.com/en/models) - Complete guide to available models
+- [Cursor Context Management](https://docs.cursor.com/en/context/) - Working with context in Cursor
+- [Cursor Privacy & Security](https://docs.cursor.com/privacy) - Privacy policies and security details
+
+### Next Steps
+
+1. **[Setting Up Cursor](./setting-up-cursor.md)** - Configure Cursor for your development environment
+2. **[Project Setup](./project-setup.md)** - Set up your development workspace
+3. **[Chat Mode](../features/chat-mode.md)** - Learn how to use Chat Mode effectively
+4. **[Prompt Engineering](../features/chat-mode/prompt-engineering.md)** - Advanced techniques for better results

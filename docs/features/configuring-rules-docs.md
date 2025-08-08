@@ -4,10 +4,9 @@ slug: "configuring-rules-docs"
 description: "Essential configuration for production workflows using Cursor Rules and documentation integration"
 sidebar_position: 4
 ---
-
 # Configuring Rules & Docs
 
-Cursor Rules are the foundation of consistent, high-quality AI-assisted development. This comprehensive guide covers everything you need to know about configuring Cursor for professional BIM development workflows.
+> 🎯 **Foundation First**: This guide assumes you've completed [Project Setup](../fundamentals/project-setup.md) and understand [Cursor&#39;s basic interface](../fundamentals/introduction-to-cursor.md). Rules configuration is an advanced topic for optimizing AI behavior.
 
 :::warning Critical Importance
 Cursor Rules are **absolutely essential** before rolling out AI-assisted development to production teams. Without proper rules, AI suggestions can be inconsistent, violate coding standards, or introduce subtle bugs that are difficult to catch in code reviews.
@@ -16,236 +15,218 @@ Cursor Rules are **absolutely essential** before rolling out AI-assisted develop
 ## 🎯 What are Cursor Rules?
 
 Cursor Rules are configuration files that:
+
 - Define coding standards and conventions
 - Provide domain-specific context to AI
 - Ensure consistent code quality across teams
 - Integrate with project-specific patterns
 - Enforce security and compliance requirements
 
+> 🚀 **Getting Started**: Learn about the basic Rules and Memories interface in [Introduction to Cursor AI](../fundamentals/introduction-to-cursor.md#ai-interaction-methods)
+
 ## 📚 Official Documentation
 
 **Essential Reading**: [https://docs.cursor.com/en/context/rules](https://docs.cursor.com/en/context/rules)
 
 Key sections to review:
+
 - [Basic Rules Setup](https://docs.cursor.com/en/context/rules#basic-setup)
 - [Advanced Configuration](https://docs.cursor.com/en/context/rules#advanced-patterns)
 - [Team Collaboration](https://docs.cursor.com/en/context/rules#team-workflows)
 
-## 🔄 Important Change: Project Rules vs .cursorrules
+## 🎯 Cursor Rules System
 
-:::warning Legacy System Deprecated
-The `.cursorrules` file is now **deprecated**. According to the [official documentation](https://docs.cursor.com/en/context/rules), Cursor now uses a **Project Rules** system with `.cursor/rules/` directory.
+According to the [official Cursor documentation](https://docs.cursor.com/en/context/rules), Cursor uses a **Project Rules** system with `.cursor/rules/` directory containing multiple `.mdc` files.
 
-**Old System**: Single `.cursorrules` file  
-**New System**: Multiple `.mdc` files in `.cursor/rules/` directory
-:::
+### Modern Project Rules Benefits
 
-### Benefits of New Project Rules System
 - **Better Organization**: Separate rules by domain/purpose
 - **Improved Scope**: Rules can target specific file patterns with `globs`
 - **Rule Types**: Always, Auto Attached, Agent Requested, or Manual
-- **Version Control**: Better integration with git and team workflows
+- **Version Control**: Full integration with git and team workflows
+- **Nested Rules**: Organize rules in subdirectories for different project areas
 
-## 🏗️ BIM Development Project Rules Template
+> **Note**: The legacy `.cursorrules` file is still supported but the modern `.cursor/rules/` system is recommended for new projects.
 
-Here's a comprehensive Project Rules setup optimized for BIM/AEC development using the modern `.cursor/rules/` system:
+## 📝 How Rules Work
 
-**Directory Structure**: `.cursor/rules/`
+Based on the [official Cursor documentation](https://docs.cursor.com/en/context/rules), rules provide system-level instructions to Agent and Inline Edit:
 
-**Main Rule** (`.cursor/rules/bim-development.mdc`):
-```mdc
+- **Persistent Context**: Rules provide consistent guidance across AI interactions
+- **Prompt-Level Instructions**: Rule contents are included at the start of model context
+- **Version Controlled**: Rules are stored as files and can be managed with git
+- **Scoped Application**: Rules can target specific files, directories, or project areas
+
+### Rule Types
+
+| Rule Type                 | Behavior                                      | When to Use            |
+| ------------------------- | --------------------------------------------- | ---------------------- |
+| **Always**          | Always included in model context              | Core project standards |
+| **Auto Attached**   | Included when matching files are referenced   | File-specific patterns |
+| **Agent Requested** | AI decides whether to include                 | Specialized knowledge  |
+| **Manual**          | Only when explicitly mentioned with @ruleName | On-demand guidance     |
+
+## 🗂️ Rule Anatomy (.mdc Format)
+
+Rules use MDC (Markdown with metadata) format:
+
+```yaml
 ---
-description: BIM/AEC development standards and patterns
-globs: ["*.py", "*.cs", "*.xaml", "*.yml", "*.yaml"]
+description: Brief description of the rule's purpose
+globs: ["*.py", "*.cs"]        # File patterns (optional)
+alwaysApply: true              # Boolean (optional)
+---
+
+# Rule Content
+Your rule instructions in markdown format.
+
+## Referenced Files
+@template-file.py              # Include additional context
+```
+
+### Key Properties
+
+- **`description`**: Required for Agent Requested rules, helps AI understand purpose
+- **`globs`**: File patterns using standard glob syntax for auto-attachment
+- **`alwaysApply`**: Set to `true` for rules that should always be active
+- **Referenced Files**: Use `@filename` to include additional context files
+
+## 🏗️ Basic BIM Rules Setup
+
+**Essential Rules Structure**:
+
+```
+project/
+├── .cursor/rules/
+│   ├── bim-standards.mdc      # Always applied core standards
+│   ├── revit-patterns.mdc     # Auto-attached for Revit files
+│   └── documentation.mdc     # Manual rule for docs generation
+```
+
+**Example: Core Standards Rule**
+
+```yaml
+---
+description: Basic BIM development standards
 alwaysApply: true
 ---
 
-# BIM/AEC Development Standards
-Project: [Your Project Name]
-Last Updated: [Date]
-Team: [Your Team Name]
+# BIM Development Standards
 
-## Project Context
-This project develops tools for Building Information Modeling (BIM) and Architecture, Engineering, Construction (AEC) workflows using pyRevit, Revit API, and related technologies.
+## Code Quality
+- Include comprehensive error handling
+- Use descriptive names for BIM elements
+- Add docstrings for all public functions
+- Follow language-specific conventions (PEP 8 for Python)
 
-### Technology Stack
-- **Primary Language**: Python 3.7+ (pyRevit compatibility)
-- **Secondary Language**: C# (Revit API, WPF)
-- **Frameworks**: pyRevit, WPF/MVVM, .NET Framework 4.8
-- **APIs**: Revit API, Forge API, IFC libraries
-- **Data**: Excel (openpyxl), SQLite, PostgreSQL
-- **UI**: WPF/XAML, pyRevit forms
-
-## Coding Standards
-
-### Python Code Style
-- Follow PEP 8 with pyRevit-specific adaptations
-- Use snake_case for variables and functions
-- Use PascalCase for classes and pyRevit tool names
-- Line length: 88 characters (Black formatter compatible)
-- Use type hints for function signatures
-- Include comprehensive docstrings with Args, Returns, Raises
-
-### C# Code Style
-- Follow Microsoft C# conventions
-- Use PascalCase for public members
-- Use camelCase for private members
-- Implement IDisposable for Revit API resources
-- Use proper async/await patterns for long operations
-
-### Naming Conventions
-```python
-# Python Examples
-class RoomDataProcessor:          # PascalCase for classes
-    def process_room_data(self):  # snake_case for methods
-        room_count = 0            # snake_case for variables
-        
-# C# Examples
-public class ElementProcessor     // PascalCase for classes
-{
-    private string elementName;   // camelCase for private fields
-    public string ElementName     // PascalCase for properties
-}
+## BIM-Specific Guidelines
+- Always use transactions for Revit model modifications
+- Validate element existence before processing
+- Handle large datasets efficiently
+- Include progress reporting for long operations
 ```
 
-**📚 For detailed DCMvn module documentation and advanced patterns, visit:**
-[https://github.com/DCMvnDigial/pyDCMvn.lib](https://github.com/DCMvnDigial/pyDCMvn.lib)
+## 🔧 Creating Rules
 
-This repository contains comprehensive documentation for:
-- Complete DCMvn framework API reference
-- Advanced MVVM patterns and services
-- Excel template library and examples
-- BIM data processing utilities
-- Integration patterns with Revit API
-- Performance optimization guidelines
+### Using Cursor Interface
 
-## Documentation Standards
+Create rules through Cursor's interface:
 
-### Code Documentation
-Use comprehensive docstrings:
-```python
-def extract_room_data(room_element, include_geometry=False):
-    """Extract comprehensive data from a Revit room element.
-    
-    Args:
-        room_element (DB.Room): Revit room element to process
-        include_geometry (bool): Whether to include geometric data
-        
-    Returns:
-        dict: Dictionary containing room data with keys:
-            - number (str): Room number
-            - name (str): Room name  
-            - area (float): Room area in square feet
-            - level (str): Level name
-            - geometry (dict, optional): Geometric properties
-            
-    Raises:
-        ValueError: If room_element is None or invalid
-        RevitAPIError: If Revit operation fails
-        
-    Example:
-        >>> room_data = extract_room_data(room, include_geometry=True)
-        >>> print(room_data['name'])
-        'Conference Room A'
-    """
+1. **New Rule Command**: Use `Ctrl+Shift+P` → "New Cursor Rule"
+2. **Settings Panel**: Go to `Cursor Settings > Rules`
+3. **Generate from Chat**: Use `/Generate Cursor Rules` command in chat
+
+### Rule Best Practices
+
+Based on the [official Cursor documentation](https://docs.cursor.com/en/context/rules):
+
+- **Keep rules focused**: Each rule should have a specific purpose
+- **Under 500 lines**: Split large rules into multiple composable rules
+- **Provide examples**: Include concrete code examples in rules
+- **Clear descriptions**: Write descriptions like internal documentation
+- **Reference files**: Use `@filename` to include additional context
+
+### Nested Rules
+
+Organize rules in subdirectories for different project areas:
+
 ```
-
-### README Requirements
-Include comprehensive project documentation:
-```markdown
-# Project Name
-
-## Overview
-Brief description of the project and its purpose.
-
-## Requirements
-- Revit 2020+
-- pyRevit 5+
-- Dependencies
-
-## Installation
-Step-by-step installation instructions.
-
-## Usage
-Examples of how to use the tools.
-
-## Configuration
-How to configure settings and preferences.
-
-## Contributing
-Guidelines for team contributions.
+project/
+├── .cursor/rules/           # Project-wide rules
+├── backend/
+│   └── .cursor/rules/      # Backend-specific rules
+└── frontend/
+    └── .cursor/rules/      # Frontend-specific rules
 ```
 
 ## Team Collaboration Rules
 
 ### Code Review Requirements
+
 - All AI-generated code must be reviewed by senior developer
 - Focus review on business logic and Revit API usage
 - Verify error handling and edge cases
 - Check performance implications for large models
 
 ### Version Control
+
 - Use semantic versioning (1.0.0)
 - Include clear commit messages
 - Tag releases with release notes
 - Maintain changelog
 
 ### Deployment Standards
+
 - Test with multiple Revit versions
 - Validate with sample models
 - Document any breaking changes
 - Provide migration guides
 
-## AI Assistance Guidelines
+## 🎯 User Rules (Global Settings)
 
-### When to Use AI
-- Boilerplate code generation
-- Standard pattern implementation  
-- Documentation writing
-- Unit test creation
-- Refactoring existing code
+Configure global rules in `Cursor Settings > Rules` that apply to all projects:
 
-### When to Review Carefully
-- Security-sensitive code
-- Performance-critical sections
-- Complex business logic
-- Integration with external systems
-- Error handling edge cases
+```markdown
+# Global Development Standards
 
-### Quality Gates
-- All AI-generated code must pass unit tests
-- Performance benchmarks must be met
-- Security scans must pass
-- Code must follow established patterns
+## Communication Style
+- Provide concise, actionable responses  
+- Include code examples with explanations
+- Focus on domain-specific solutions
 
-## Conclusion
+## Code Quality Standards
+- Always include proper error handling
+- Use descriptive variable and function names
+- Add inline documentation for complex operations
+- Follow language-specific conventions (PEP 8 for Python, Microsoft for C#)
+```
 
-These rules ensure consistent, high-quality AI-assisted development for BIM projects. Regular updates and team feedback help maintain relevance and effectiveness.
+## 📋 Rule Management Tips
 
-Remember: **Rules are living documents** - update them as you learn and as technologies evolve.
+### FAQ from [Official Documentation](https://docs.cursor.com/en/context/rules)
 
-## 📊 Measuring Success
+**Why isn't my rule being applied?**
 
-### Quality Metrics
-- Reduced code review iterations
-- Fewer bugs in AI-generated code
-- Consistent coding patterns across team
-- Improved code documentation quality
+- Check rule type and file pattern matching
+- Ensure `description` is provided for Agent Requested rules
+- Verify `globs` patterns match your files
 
-### Productivity Metrics
-- Faster development cycles
-- Reduced onboarding time for new developers
-- More consistent tool architecture
-- Better adherence to coding standards
+**Can rules reference other files?**
 
-### Team Satisfaction
-- Developer confidence in AI suggestions
-- Reduced friction in code reviews
-- Better collaboration across team members
-- Improved code quality perception
+- Yes, use `@filename.ts` to include additional context
+- Referenced files are included when the rule triggers
+
+**Do rules affect all Cursor features?**
+
+- No, rules only apply to Agent and Inline Edit features
+- Tab completion and other features are not affected
 
 ---
 
-Proper Cursor Rules are the foundation of successful AI-assisted development. Next, let's see these rules in action with real-world case studies.
+## 🚀 Next Steps
 
-**Next**: [Hands-On Examples](../hands-on/pyrevit-mvvm-showcase.md) - Real-world implementations
+Start with basic rules and gradually expand based on your team's needs:
+
+1. **[Project Setup](../fundamentals/project-setup.md)** - Set up your basic rules structure
+2. **[Hands-On Examples](../hands-on/pyrevit-mvvm-showcase.md)** - See advanced DCMvn-specific rules and patterns in action
+3. **[Chat Mode](./chat-mode.md)** - Learn how rules integrate with conversational AI development

@@ -8,6 +8,8 @@ sidebar_position: 3
 
 Cursor's Chat Mode transforms your development workflow by providing an intelligent conversational interface that understands your entire codebase. This feature is particularly powerful for BIM development where complex domain knowledge and multi-file operations are common.
 
+> 🚀 **New to Cursor?** Start with the [Introduction to Cursor AI](../fundamentals/introduction-to-cursor.md) to understand the basic interface and concepts before diving into advanced Chat Mode features.
+
 ## 🌟 What is Chat Mode?
 
 Chat Mode is Cursor's conversational AI interface that allows you to:
@@ -44,6 +46,8 @@ Chat Mode is Cursor's conversational AI interface that allows you to:
 3. **Reference Symbols**: Use `@ClassName` or `@function_name` for specific code elements
 4. **Ask Questions**: Use natural language to describe what you need
 
+> 💡 **New to Cursor?** Learn about the context reference system and basic interface in [Introduction to Cursor AI](../fundamentals/introduction-to-cursor.md#-cursor-interface-overview)
+
 ### Advanced Chat Commands
 
 #### File References
@@ -70,7 +74,7 @@ Chat Mode is Cursor's conversational AI interface that allows you to:
 /web - Search web for additional context
 ```
 
-## 🏗️ BIM Development Use Cases
+## 🏗️ AEC Development Use Cases
 
 ### 1. Code Explanation and Learning
 
@@ -166,6 +170,14 @@ MVVM pattern with WPF UI. Include error handling and progress reporting.
 
 ## 📊 Advanced Chat Techniques
 
+### AI Memory and Suggestions
+
+Cursor provides intelligent memory suggestions to help maintain context and improve your workflow:
+
+![Memory Suggest](images/MemorySuggest.png)
+
+*Cursor's memory feature suggests relevant context and previous conversations to enhance current discussions*
+
 ### Multi-Step Planning
 
 Break complex requests into phases:
@@ -184,6 +196,10 @@ Phase 3: Implement the first improvement focusing on the @utils module.
 
 Build features incrementally:
 
+![Preview Changed Multiple Files](images/PreviewChangedMultipleFiles.png)
+
+*Preview interface showing how Cursor manages changes across multiple files during iterative development*
+
 ```
 Step 1: Create a basic room data structure that matches Revit's Room element
 
@@ -198,6 +214,10 @@ Step 4: Add error handling for common Revit API exceptions
 
 Use chat for comprehensive reviews:
 
+![Review Cursor Changed](images/ReviewCursorChanged.png)
+
+*Review interface showing how Cursor tracks and presents code changes for quality assurance*
+
 ```
 Please review @my_new_feature.py for:
 1. Adherence to our coding standards in @.cursor/rules/
@@ -207,35 +227,25 @@ Please review @my_new_feature.py for:
 5. Test coverage recommendations
 ```
 
-## 🔧 Chat Mode Configuration
+## 🔧 Chat Mode Settings
 
-### Context Settings
+### Context Management
 
-Configure what information Chat Mode has access to:
+Cursor automatically manages context for Chat Mode through its indexing and rules system. You can control what information is available to Chat Mode through:
 
-```json
-{
-  "chat.includeWorkspace": true,
-  "chat.includeRecentFiles": true,
-  "chat.includeGitHistory": false,
-  "chat.maxContextSize": 200000
-}
-```
+- **Codebase Indexing**: Configured in `Cursor Settings > Features > Codebase Indexing`
+- **Rules for AI**: Set project-specific rules in `.cursor/rules/` directory
+- **Ignore Files**: Use `.cursorignore` to exclude sensitive files from indexing
 
-### Privacy Controls
+### Privacy and Security
 
-Control sensitive information sharing:
+Control what Chat Mode can access:
 
-```json
-{
-  "chat.excludePatterns": [
-    "*.rvt",
-    "**/secrets/**",
-    "config.ini",
-    "**/temp/**"
-  ]
-}
-```
+- Use `.cursorignore` file to exclude sensitive files and directories
+- Configure indexing settings to limit what gets processed
+- Review file patterns to ensure proprietary data remains private
+
+For detailed configuration options, refer to the [official Cursor documentation](https://docs.cursor.com/en/context/rules).
 
 ## 🚀 Integration with Other Features
 
@@ -262,6 +272,14 @@ Escalate complex tasks:
 1. Discuss approach in chat
 2. Delegate implementation to Agent Mode
 3. Review and refine results
+
+:::warning Always Use Version Control with AI Agents
+When working with AI agents that can make extensive code changes, **always use Git for version control** to track all modifications and maintain code history.
+
+![Always Use Git To Control Version](images/AlwaysUseGitToControlVersion.png)
+
+*Best practice: Always commit your work before starting AI agent sessions to ensure you can track and revert changes if needed*
+:::
 
 ## 📈 Best Practices for BIM Development
 

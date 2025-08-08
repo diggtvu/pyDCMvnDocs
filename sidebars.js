@@ -33,6 +33,7 @@ const sidebars = {
       type: 'category',
       label: '🚀 Core Cursor Features',
       items: [
+        'features/configuring-rules-docs',
         'features/tab-autocomplete',
         'features/inline-editing',
         {
@@ -43,7 +44,6 @@ const sidebars = {
             'features/chat-mode/prompt-engineering',
           ],
         },
-        'features/configuring-rules-docs',
       ],
     },
     

@@ -8,7 +8,30 @@ sidebar_position: 5
 
 Get started with Cursor AI for BIM development in just a few steps.
 
-## Configure for BIM Development
+## 🔧 Prerequisites
+
+Before setting up Cursor, ensure you have:
+
+- **Development Environment**: Visual Studio 2022 for .NET/XAML Development or Python 3.8+ for standalone IFC processing
+- **BIM Software**: Autodesk Revit 2020+ (for Revit API development)
+- **pyRevit 5+** - Current stable release
+- **Basic Knowledge**: Familiarity with Python 2/3, IronPython, basic libraries (pandas, numpy, matplotlib, openpyxl, ifcopenshell, etc.)
+- **Version Control**: Git installed and configured
+
+### Recommended Experience
+
+- **C# Programming** - For advanced Revit API development
+- **WPF/XAML** - For creating user interfaces
+- **Database Concepts** - For data storage and retrieval
+- **Version Control** - Git workflows and collaboration
+
+## Install Cursor
+
+1. **Download Cursor**: Visit [cursor.com](https://cursor.com) and download the installer
+2. **Install**: Run the installer and follow the setup wizard
+3. **Launch**: Open Cursor - AI features work immediately out of the box
+
+## Configuration
 
 ### Sync Settings from VS Code
 
@@ -18,23 +41,13 @@ If you're migrating from VS Code, Cursor can automatically sync your settings:
 2. **Sign in** with your GitHub/Microsoft account to sync extensions and settings
 3. **Select what to sync**: Extensions, Settings, Keybindings, Snippets
 
-### Enable BIM-Specific Settings
+### Settings
 
 Open Cursor settings (`Ctrl+,`) and configure:
 
-```json
-{
-    "cursor.cpp.disabledLanguages": [],
-    "cursor.tab.enablePartialAccepts": true,
-    "cursor.tab.triggerInComments": true,
-    "cursor.imports.typescript.enabled": false,
-    "cursor.imports.python.enabled": true,
-    "cursorpyright.analysis.extraPaths": [
-        "~/AppData/Roaming/pyRevit-Master/pyrevitlib",
-        "~/AppData/Roaming/pyRevit-Master/site-packages"
-    ]
-}
-```
+![Cursor Specific Settings](images/CursorSpecificSettings.png)
+
+*Cursor Settings panel showing various configuration options for optimizing your development environment*
 
 ### Install Cursor-Specific Extensions
 
@@ -57,7 +70,7 @@ Open Cursor settings (`Ctrl+,`) and configure:
 
 > **Important**: Use Cursor-specific versions of extensions when available. Standard VS Code extensions may not work properly or lack Cursor's AI integration features.
 
-### Configure Python Stubs for Better IntelliSense
+### Configure Python Stubs for python/Revit API
 
 For enhanced Python development with Revit API and pyRevit, configure additional stub paths:
 
@@ -87,7 +100,7 @@ If Cursor suggests appropriate Revit API imports and command structure with prop
 
 ## Next Steps
 
-Continue with [Project Setup](./project-setup) to configure your first BIM development project with Cursor AI.
+With Cursor installed and configured, continue with [Project Setup](./project-setup.md) to organize your BIM development environment and configure workspace-specific settings.
 
 ---
 

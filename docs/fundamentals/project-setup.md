@@ -6,31 +6,7 @@ sidebar_position: 4
 ---
 # Project Setup
 
-Configure your BIM development environment for optimal Cursor AI integration.
-
-## 🔧 Prerequisites
-
-Before you begin, ensure you have:
-
-- **Cursor IDE** - Download from [cursor.com](https://cursor.com)
-- **Development Environment**: Visual Studio 2022 for .NET/XAML Development or Python 3.8+ For standalone IFC processing
-- **BIM Software**: Autodesk Revit 2020+ (for Revit API development)
-- **pyRevit 5+** - Current stable release
-- **Basic Knowledge**: Familiarity with Python 2/3, IronPython, basic libraries (pandas, numpy, matplotlib, openpyxl, ifcopenshell, etc.)
-- **Version Control**: Git installed and configured
-
-## Install Cursor
-
-1. **Download Cursor**: Visit [cursor.com](https://cursor.com) and download the installer
-2. **Install**: Run the installer and follow the setup wizard
-3. **Launch**: Open Cursor - AI features work immediately out of the box
-
-### Recommended Experience
-
-- **C# Programming** - For advanced Revit API development
-- **WPF/XAML** - For creating user interfaces
-- **Database Concepts** - For data storage and retrieval
-- **Version Control** - Git workflows and collaboration
+Configure your BIM development environment for optimal Cursor AI integration. This guide assumes you have already [set up Cursor](./setting-up-cursor.md) with the necessary prerequisites.
 
 ## Project Structure Recommendations
 
@@ -39,6 +15,71 @@ For optimal Cursor performance with BIM projects, organize your workspace as fol
 - [C# Revit Project](https://github.com/DCMvnDigial/DCMvn)
 - [Python pyRevit Project](https://github.com/DCMvnDigial/pyDCMvn.MunichRE)
 - [IFC Analysis Project](https://github.com/DCMvnDigial/IfcAnalyzer)
+
+## Configure Cursor Indexing
+
+### Codebase Indexing and Documentation
+
+Cursor automatically indexes your codebase to provide intelligent AI assistance:
+
+![Indexing And Docs](images/IndexingAndDocs.png)
+
+*Cursor's indexing and documentation features help provide better context for AI assistance by understanding your codebase structure*
+
+### Control File Access and Indexing
+
+Cursor provides two ignore files to control what the AI can access and index:
+
+**`.cursorignore`** - Blocks access to files from:
+
+- Codebase indexing
+- Tab, Agent, and Inline Edit features
+- @ symbol references
+
+**`.cursorindexingignore`** - Excludes files from indexing only (files remain accessible to AI features but won't appear in codebase searches)
+
+For BIM projects, use these patterns to optimize performance:
+
+**.cursorignore example:**
+
+```gitignore
+# Block access to large BIM files completely
+*.rvt
+*.rfa
+*.rte
+*.rft
+*.ifc
+*.dwg
+
+# Block access to sensitive files
+config.json
+secrets/
+*.key
+*.pem
+.env*
+
+# Block access to temporary files
+temp/
+**/*.tmp
+**/*.bak
+```
+
+**.cursorindexingignore example:**
+
+```gitignore
+# Don't index but allow AI access when referenced
+docs/archive/
+legacy/
+**/*.pdf
+**/*.xlsx
+large_datasets/
+
+# Don't index build outputs
+bin/
+obj/
+dist/
+node_modules/
+```
 
 ## Configure Version Control
 
@@ -79,44 +120,6 @@ __pycache__/
 *.ifc
 ```
 
-## Cursor Workspace Configuration
-
-### settings.json for BIM Development
-
-Create `.vscode/settings.json`:
-
-```json
-{
-    // Cursor Tab completion settings
-    "cursor.tab.enabled": true,
-    "cursor.tab.partialAccepts": true,
-    "cursor.tab.triggerInComments": true,
-    "cursor.tab.maxSuggestionLength": 1000,
-  
-    // Auto-import settings
-    "cursor.imports.python.enabled": true,
-    "cursor.imports.typescript.enabled": false,
-  
-    // BIM-specific language settings
-    "cursor.languages.csharp.enabled": true,
-    "cursor.languages.python.enabled": true,
-  
-    // File associations for BIM development
-    "files.associations": {
-        "*.addin": "xml",
-        "*.ifc": "plaintext",
-        "*.ifcxml": "xml"
-    },
-  
-    // Exclude large files from search
-    "search.exclude": {
-        "**/*.rvt": true,
-        "**/*.rfa": true,
-        "**/*.ifc": true
-    }
-}
-```
-
 ## Language-Specific Setup
 
 ### C# Revit API Projects
@@ -126,7 +129,6 @@ Create `.vscode/settings.json`:
 ### Python pyRevit Projects
 
 1. **Start directly with pyRevit 5+**: don't need to set up virtual environment, select interpreter and start developing.
-
 2. **Set up virtual environment**: if you want develop standalone IFC processing, you need to set up virtual environment.
 
 ```powershell
@@ -153,96 +155,59 @@ openpyxl
 
 Expected result: Cursor should generate proper Revit API code with:
 
-- Correct using statements
-- Proper external command structure
-- Transaction handling
-- Error management
+- [ ] Correct using statements
+- [ ] Proper external command structure
+- [ ] Transaction handling
+- [ ] Error management
 
 ## Performance Optimization
 
-### Large Model Handling
-
-For projects with large BIM models:
-
-1. **Exclude large files** from Cursor indexing
-2. **Use specific file patterns** for BIM files
-3. **Close unused projects** to reduce memory usage
-4. **Configure file watchers** to ignore temporary files
-
-### Memory Management
-
-```json
-{
-    "files.watcherExclude": {
-        "**/*.rvt": true,
-        "**/*.rfa": true,
-        "**/*.ifc": true,
-        "**/temp/**": true
-    }
-}
-```
+For projects with large code base, refer to the [Control File Access and Indexing](#control-file-access-and-indexing) section above for proper `.cursorignore` and `.cursorindexingignore` configuration.
 
 ## Modern Cursor Configuration
 
 ### Setup .cursor/rules/ Directory
 
-Modern Cursor uses a structured rules system instead of a single `.cursorrules` file:
+Cursor uses a structured rules system with `.cursor/rules/` directory:
+
+![Munich Re Rules Structure](../features/images/MunichReRulesStructure.png)
+
+*Example of a well-organized rules structure from a real project showing domain-specific organization*
+
+**Basic Rules Setup**:
 
 ```
 your-project/
-├── .cursor/
-│   └── rules/
-│       ├── dcmvn-framework.mdc      # Framework patterns
-│       ├── pyrevit-templates.py     # Code templates
-│       ├── project-standards.mdc    # Team standards
-│       └── error-handling.mdc       # Error patterns
-├── .cursorindexingignore           # Exclude large files
+├── .cursor/rules/
+│   ├── project-standards.mdc    # Core team standards
+│   └── bim-patterns.mdc         # BIM-specific patterns
+├── .cursorindexingignore        # Exclude large files  
 └── your-project-files...
 ```
 
-### Essential Rule Files
-
-**1. dcmvn-framework.mdc**
+**Essential Rule Example** (`.cursor/rules/project-standards.mdc`):
 
 ```yaml
 ---
-description: DCMvn framework patterns for pyRevit development
+description: Core project development standards
 alwaysApply: true
 ---
-## Core Framework Integration
-- **Primary imports**: `from DCMvn.core import DB, HOST_APP, get_output`
-- **Framework utilities**: `from DCMvn.core.framework import System, Debug`
-- **User notifications**: `from DCMvn.forms import alert`
-- **CLR setup**: Always add `clr.AddReference("System.Core")`
 
-## MVVM Architecture
-- **ViewModels**: Inherit from `ViewModelBase`
-- **Commands**: Use `RelayCommand(execute_method, can_execute_method)`
-- **Collections**: Use `ObservableCollection[T]()` for UI-bound data
+# Project Standards
+
+## Code Quality
+- Include comprehensive error handling
+- Use descriptive names for functions and variables
+- Add docstrings for all public functions
+- Follow PEP 8 for Python, Microsoft conventions for C#
+
+## BIM-Specific Guidelines
+- Always use transactions for Revit model modifications
+- Validate element existence before processing
+- Handle large datasets efficiently
 ```
 
-**2. .cursorindexingignore**
-
-```
-# Don't index large BIM files
-**/*.rvt
-**/*.rfa
-**/*.ifc
-**/*.dwg
-temp/**
-bin/**
-obj/**
-
-# Don't index auto-save files but allow @ references
-.specstory/**
-```
-
-### Configuration Benefits
-
-- **Structured rules** organized by purpose
-- **YAML frontmatter** for rule metadata
-- **Template files** for consistent scaffolding
-- **Selective indexing** for better performance
+> 📚 **Advanced Rules**: For comprehensive DCMvn-specific rules, patterns, and team standards, see the [Hands-On Examples](../hands-on/pyrevit-mvvm-showcase.md)
 
 ## DCMvn Development Standards
 

@@ -78,7 +78,7 @@ The AI coding landscape has evolved into four distinct categories, each with uni
 
 **Best fit**: Mid-large teams running big monorepos, automated pipelines, or wanting agents to clear backlog tasks while engineers sleep.
 
-### TL;DR (2025-style)
+### Summary AI Coding Tools (Late 2025)
 
 - **Editor Agents**: Smoothest, richest UX; but audit vendor trust and watch your costs. Think Cursor, Windsurf.
 - **Plugin Agents**: Lowest barrier, best for steady incremental gain; still reactive. Copilot dominates.

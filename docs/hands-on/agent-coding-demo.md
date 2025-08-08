@@ -19,7 +19,7 @@ This advanced demonstration showcases Cursor's Agent Mode for autonomous AI deve
 
 **Duration**: 90 minutes (including Q&A)
 **AI Autonomy**: 60-70% autonomous development
-**Complexity Level**: Advanced
+**Complexity Level**: Medium
 
 ## 🤖 Agent Mode Capabilities
 
@@ -70,7 +70,7 @@ This advanced demonstration showcases Cursor's Agent Mode for autonomous AI deve
 
 - **Framework**: pyRevit with WPF interface
 - **Data Sources**: Excel (.xlsx), Revit parameters
-- **Output**: Excel reports, Revit markups, PDF summaries
+- **Output**: Excel reports
 - **Performance**: Handle 10,000+ MEP elements efficiently
 - **Error Handling**: Comprehensive validation and user feedback
 

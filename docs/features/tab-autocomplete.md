@@ -8,6 +8,8 @@ sidebar_position: 1
 
 Cursor's Tab feature provides autocompletion with multi-line edits, cross-file suggestions, and context-aware code completions specifically optimized for BIM development workflows.
 
+> 📚 **Prerequisites**: Familiarize yourself with [Cursor basics](../fundamentals/introduction-to-cursor.md) and [initial setup](../fundamentals/setting-up-cursor.md) before exploring advanced Tab features.
+
 ## What is Cursor Tab?
 
 Tab is a specialized Cursor model for autocompletion that learns from your usage patterns. According to the [official Cursor documentation](https://docs.cursor.com/en/tab/overview), the more you use it, the better it becomes as you inject intent by accepting Tab or rejecting Esc suggestions.
@@ -104,6 +106,12 @@ def analyze_mep_systems():
 
 ## Tab Settings and Configuration
 
+![Cursor Tab Settings](../fundamentals/images/CursorTabSettings.png)
+
+*Cursor Tab autocompletion settings interface showing configuration options for intelligent code completion*
+
+> 🔧 **Settings Overview**: For a comprehensive guide to Cursor settings, see [Setting Up Cursor](../fundamentals/setting-up-cursor.md#settings)
+
 ### Available Settings
 
 | Setting                                 | Description                                                                    |
@@ -122,6 +130,10 @@ Use the status bar (bottom-right) to:
 - **Snooze**: Temporarily disable Tab for a chosen duration
 - **Disable globally**: Disable Tab for all files
 - **Disable for extensions**: Disable Tab for specific file extensions (e.g., markdown or JSON)
+
+![Tab To Delete](images/TabToDelete.png)
+
+*Tab interface showing delete and toggle controls for managing autocompletion behavior*
 
 ### Keyboard Shortcuts
 
